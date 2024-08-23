@@ -1,9 +1,56 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 *,
 *::after,
 *::before {
     box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    font-size: 32px;
 }
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.human-input {
+    width: 300px;
+    height: auto;
+    margin: 24px;
+}
+.score-text {
+    display: flex;
+    gap: 16px;
+}
+.score-text > p {
+    margin: 0;
+}
+.confirm-button {
+    background-color: rgb(167, 255, 255);
+    outline: rgb(167, 220, 255) 2px solid;
+    color: rgb(245, 255, 255);
+    border: none;
+    padding: 16px 18px;
+    margin: 16px 0px;
+    border-radius: 5px;
+}
+.confirm-button:hover {
+    background-color: rgb(100, 216, 216);
+}
+.round-info {
+    margin: 12px;
+    font-size: 48px;
+}
+.images-container {
+    display: flex;
+    gap: 48px;
+}
+.images-container > img:nth-child(1) {
+    rotate: 120deg;
+}
+.images-container > img:nth-child(2) {
+    transform: scaleX(-1);
+    rotate: 240deg;
 }
