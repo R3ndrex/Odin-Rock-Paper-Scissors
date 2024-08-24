@@ -13,17 +13,15 @@ function getComputerChoice() {
 }
 function getHumanChoice(humanInput) {
     let humanChoice = humanInput.toLowerCase().trim();
-    if (
-        humanChoice === "rock" ||
-        humanChoice === "paper" ||
-        humanChoice === "scissors"
-    ) {
-        return humanChoice;
-    } else {
-        throw new TypeError("There is no signal like this.");
+    switch (humanChoice) {
+        case "rock":
+        case "paper":
+        case "scissors":
+            return humanChoice;
+        default:
+            throw new TypeError("There is no signal like this.");
     }
 }
-
 function playRound(humanInput) {
     let humanChoice = getHumanChoice(humanInput);
     let computerChoice = getComputerChoice();
@@ -48,26 +46,8 @@ function playRound(humanInput) {
 function animateHands(humanChoice, computerChoice) {
     let humanHand = document.querySelector(".human-hand");
     let computerHand = document.querySelector(".computer-hand");
-    switch (computerChoice) {
-        case "paper":
-            computerHand.src = "./images/paper.png";
-            break;
-        case "scissors":
-            computerHand.src = "./images/scissors.png";
-            break;
-        default:
-            computerHand.src = "./images/rock.png";
-    }
-    switch (humanChoice) {
-        case "paper":
-            humanHand.src = "./images/paper.png";
-            break;
-        case "scissors":
-            humanHand.src = "./images/scissors.png";
-            break;
-        default:
-            humanHand.src = "./images/rock.png";
-    }
+    computerHand.src = `./images/${computerChoice}.png`;
+    humanHand.src = `./images/${humanChoice}.png`;
 }
 function ChangeRound() {
     let inputField = document.querySelector(".human-input");
