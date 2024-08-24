@@ -26,22 +26,18 @@ function playRound(humanInput) {
     let humanChoice = getHumanChoice(humanInput);
     let computerChoice = getComputerChoice();
     animateHands(humanChoice, computerChoice);
-    if (
+    if (humanChoice === computerChoice) {
+        return "It's a draw!";
+    } else if (
         (humanChoice === "rock" && computerChoice === "paper") ||
         (humanChoice === "paper" && computerChoice === "scissors") ||
         (humanChoice === "scissors" && computerChoice === "rock")
     ) {
         computerScore++;
         return "You lost!";
-    } else if (
-        (humanChoice === "paper" && computerChoice === "rock") ||
-        (humanChoice === "scissors" && computerChoice === "paper") ||
-        (humanChoice === "rock" && computerChoice === "scissors")
-    ) {
-        humanScore++;
-        return "You won!";
     }
-    return "It's a draw!";
+    humanScore++;
+    return "You won!";
 }
 function animateHands(humanChoice, computerChoice) {
     document.querySelector(".human-hand").src = `./images/${humanChoice}.png`;
