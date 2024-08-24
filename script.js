@@ -44,10 +44,10 @@ function playRound(humanInput) {
     return "It's a draw!";
 }
 function animateHands(humanChoice, computerChoice) {
-    let humanHand = document.querySelector(".human-hand");
-    let computerHand = document.querySelector(".computer-hand");
-    computerHand.src = `./images/${computerChoice}.png`;
-    humanHand.src = `./images/${humanChoice}.png`;
+    document.querySelector(".human-hand").src = `./images/${humanChoice}.png`;
+    document.querySelector(
+        ".computer-hand"
+    ).src = `./images/${computerChoice}.png`;
 }
 function ChangeRound() {
     let inputField = document.querySelector(".human-input");
