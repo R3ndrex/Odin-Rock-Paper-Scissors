@@ -54,10 +54,10 @@ function ChangeRound() {
     inputField.value = "";
     document.querySelector(
         ".human-text"
-    ).innerHTML = `Your score: <strong>${humanScore}</strong>`;
+    ).textContent = `Your score: ${humanScore}`;
     document.querySelector(
         ".computer-text"
-    ).innerHTML = `Computer score: <strong>${computerScore}</strong>`;
+    ).textContent = `Computer score: ${computerScore}`;
 }
 document.addEventListener("DOMContentLoaded", function () {
     let button = document.querySelector(".confirm-button");
