@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let enterKeyCode = 13;
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
     switch (randomNumber) {
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let inputField = document.querySelector(".human-input");
     button.addEventListener("click", ChangeRound);
     inputField.addEventListener("keyup", (event) => {
-        if (event.keyCode === 13) {
+        if (event.keyCode === enterKeyCode) {
             ChangeRound();
         }
     });
