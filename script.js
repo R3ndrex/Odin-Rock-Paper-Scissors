@@ -1,6 +1,10 @@
 let humanScore = 0;
 let computerScore = 0;
 let enterKeyCode = 13;
+const inputField = document.querySelector(".human-input");
+const roundInfo = document.querySelector(".round-info");
+const button = document.querySelector(".confirm-button");
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
     switch (randomNumber) {
@@ -12,6 +16,7 @@ function getComputerChoice() {
             return "scissors";
     }
 }
+
 function getHumanChoice(humanInput) {
     let humanChoice = humanInput.toLowerCase().trim();
     switch (humanChoice) {
@@ -23,6 +28,7 @@ function getHumanChoice(humanInput) {
             throw new TypeError("There is no signal like this.");
     }
 }
+
 function playRound(humanInput) {
     let humanChoice = getHumanChoice(humanInput);
     let computerChoice = getComputerChoice();
@@ -40,15 +46,15 @@ function playRound(humanInput) {
     humanScore++;
     return "You won!";
 }
+
 function animateHands(humanChoice, computerChoice) {
     document.querySelector(".human-hand").src = `./images/${humanChoice}.png`;
     document.querySelector(
         ".computer-hand"
     ).src = `./images/${computerChoice}.png`;
 }
+
 function ChangeRound() {
-    let inputField = document.querySelector(".human-input");
-    let roundInfo = document.querySelector(".round-info");
     let humanChoice = inputField.value;
     roundInfo.textContent = playRound(humanChoice);
     inputField.value = "";
@@ -59,13 +65,10 @@ function ChangeRound() {
         ".computer-text"
     ).textContent = `Computer score: ${computerScore}`;
 }
-document.addEventListener("DOMContentLoaded", function () {
-    let button = document.querySelector(".confirm-button");
-    let inputField = document.querySelector(".human-input");
-    button.addEventListener("click", ChangeRound);
-    inputField.addEventListener("keyup", (e) => {
-        if (e.keyCode === enterKeyCode) {
-            ChangeRound();
-        }
-    });
+
+button.addEventListener("click", ChangeRound);
+inputField.addEventListener("keyup", (e) => {
+    if (e.keyCode === enterKeyCode) {
+        ChangeRound();
+    }
 });
