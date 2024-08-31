@@ -1,6 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
-let enterKeyCode = 13;
+const enterKey = "Enter";
 const inputField = document.querySelector(".human-input");
 const roundInfo = document.querySelector(".round-info");
 const button = document.querySelector(".confirm-button");
@@ -68,7 +68,7 @@ function ChangeRound() {
 
 button.addEventListener("click", ChangeRound);
 inputField.addEventListener("keyup", (e) => {
-    if (e.keyCode === enterKeyCode) {
+    if (e.key === enterKey) {
         ChangeRound();
     }
 });
