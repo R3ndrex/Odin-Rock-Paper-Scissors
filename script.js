@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let button = document.querySelector(".confirm-button");
     let inputField = document.querySelector(".human-input");
     button.addEventListener("click", ChangeRound);
-    inputField.addEventListener("keyup", (event) => {
-        if (event.keyCode === enterKeyCode) {
+    inputField.addEventListener("keyup", (e) => {
+        if (e.keyCode === enterKeyCode) {
             ChangeRound();
         }
     });
