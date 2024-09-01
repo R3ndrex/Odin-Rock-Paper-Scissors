@@ -45,6 +45,7 @@ function playRound(humanChoice) {
     humanScore++;
     return "You won!";
 }
+
 function updateRound(humanChoice) {
     roundInfo.textContent = playRound(humanChoice);
     humanText.textContent = `Your score: ${humanScore}`;
@@ -67,4 +68,5 @@ buttons.forEach((button) => {
         updateRound(button.className);
     });
 });
+
 popupButton.addEventListener("click", () => location.reload());
