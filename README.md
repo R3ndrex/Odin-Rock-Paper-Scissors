@@ -4,7 +4,7 @@ Implementation of a simple game "Rock Paper Scissors" with JavaScript, CSS and H
 
 # How to use
 
-Simply press rock, paper or scissors button and you will see result, round will start and show your and computers hand signs and add point to a winner. The game ends when someone gets 5 points, after that the popup menu is shown.
+Simply press the rock, paper, or scissors button, and you will see the result. The round will start and display both your and the computer's hand signs, adding a point to the winner. The game ends when someone reaches 5 points, after which a popup menu is shown with a button to start a new game.
 
 # Screenshots
 
