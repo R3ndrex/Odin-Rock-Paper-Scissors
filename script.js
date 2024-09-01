@@ -1,9 +1,16 @@
 let humanScore = 0;
 let computerScore = 0;
-const enterKey = "Enter";
-const inputField = document.querySelector(".human-input");
+
 const roundInfo = document.querySelector(".round-info");
-const button = document.querySelector(".confirm-button");
+const buttons = document.querySelectorAll(".button-container > *");
+const humanHand = document.querySelector(".human-hand");
+const computerHand = document.querySelector(".computer-hand");
+const humanText = document.querySelector(".human-text");
+const computerText = document.querySelector(".computer-text");
+const popup = document.querySelector(".popup-container");
+const popupH = document.querySelector(".popup-header");
+const popupParagraph = document.querySelector(".popup-paragraph");
+const popupButton = document.querySelector(".popup-button");
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -17,20 +24,12 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice(humanInput) {
-    let humanChoice = humanInput.toLowerCase().trim();
-    switch (humanChoice) {
-        case "rock":
-        case "paper":
-        case "scissors":
-            return humanChoice;
-        default:
-            throw new TypeError("There is no signal like this.");
-    }
+function animateHands(humanChoice, computerChoice) {
+    humanHand.src = `./images/${humanChoice}.png`;
+    computerHand.src = `./images/${computerChoice}.png`;
 }
 
-function playRound(humanInput) {
-    let humanChoice = getHumanChoice(humanInput);
+function playRound(humanChoice) {
     let computerChoice = getComputerChoice();
     animateHands(humanChoice, computerChoice);
     if (humanChoice === computerChoice) {
@@ -46,29 +45,26 @@ function playRound(humanInput) {
     humanScore++;
     return "You won!";
 }
-
-function animateHands(humanChoice, computerChoice) {
-    document.querySelector(".human-hand").src = `./images/${humanChoice}.png`;
-    document.querySelector(
-        ".computer-hand"
-    ).src = `./images/${computerChoice}.png`;
-}
-
-function ChangeRound() {
-    let humanChoice = inputField.value;
+function updateRound(humanChoice) {
     roundInfo.textContent = playRound(humanChoice);
-    inputField.value = "";
-    document.querySelector(
-        ".human-text"
-    ).textContent = `Your score: ${humanScore}`;
-    document.querySelector(
-        ".computer-text"
-    ).textContent = `Computer score: ${computerScore}`;
+    humanText.textContent = `Your score: ${humanScore}`;
+    computerText.textContent = `Computer score: ${computerScore}`;
+    checkEndGame();
 }
 
-button.addEventListener("click", ChangeRound);
-inputField.addEventListener("keyup", (e) => {
-    if (e.key === enterKey) {
-        ChangeRound();
+function checkEndGame() {
+    if (computerScore >= 5 || humanScore >= 5) {
+        popup.style["visibility"] = "visible";
+        if (computerScore > humanScore) {
+            popupH.textContent = "You lost!";
+        }
+        popupParagraph.innerHTML = `Your score: ${humanScore}. Computer score: ${computerScore}.<br /><strong>Wanna try again?</strong>`;
     }
+}
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        updateRound(button.className);
+    });
 });
+popupButton.addEventListener("click", () => location.reload());
