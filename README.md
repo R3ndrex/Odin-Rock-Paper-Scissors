@@ -9,7 +9,7 @@ After confirming/entering your hand sign, round will start which will show your 
 
 # Screenshot
 
-![MainScreen](https://i.imgur.com/94Ny5LO.png?raw=true)
+![MainScreen](https://i.imgur.com/m1SykGV.png?raw=true)
 
 # Sources
 
