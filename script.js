@@ -55,7 +55,7 @@ function updateRound(humanChoice) {
 
 function checkEndGame() {
     if (computerScore >= 5 || humanScore >= 5) {
-        popup.style["visibility"] = "visible";
+        popup.classList.add("active");
         if (computerScore > humanScore) {
             popupH.textContent = "You lost!";
         }
