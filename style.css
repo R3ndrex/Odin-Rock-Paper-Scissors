@@ -29,7 +29,7 @@ body {
 
 .round-info {
     margin: 12px;
-    font-size: 48px;
+    font-size: 1.5rem;
 }
 
 .images-container {
@@ -62,9 +62,8 @@ body {
     border-radius: 5px;
 }
 
-.button-container > button:hover,
-.popup-container > button:hover {
-    background-color: rgb(212, 212, 212);
+button:hover {
+    filter: brightness(90%);
 }
 .popup-container {
     visibility: hidden;
